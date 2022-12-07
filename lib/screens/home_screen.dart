@@ -45,7 +45,7 @@ class HomeScreen extends StatelessWidget {
           ),
           const SizedBox(height: 20),
           const Text(
-            "Mobile app for 3IT1",
+            "Mobile app for 3IT2",
             style: TextStyle(
               fontSize: 24,
               fontWeight: FontWeight.bold,
