@@ -8,80 +8,57 @@ class DetailScreen extends StatefulWidget {
 }
 
 class _DetailScreenState extends State<DetailScreen> {
-  final int rate = 17500;
-  final int amount = 100;
+  int rate = 17500;
+  int amount = 500;
   int total = 0;
 
-  // create student list with fullname and student id
-
-  final List students = [
-    "Student 1",
-    "Student 2",
-    "Student 3",
-    "Student 4",
-    "Student 5",
-    "Student 6",
-    "Student 7",
-    "Student 8",
-    "Student 9",
-    "Student 10",
-    "Student 11",
-    "Student 12",
-    "Student 13",
-    "Student 14",
-    "Student 15",
-    "Student 16",
-    "Student 17",
-    "Student 18",
-    "Student 19",
-    "Student 20",
-    "Student 21",
-    "Student 22",
-    "Student 23",
-    "Student 24",
-    "Student 25",
-    "Student 26",
-    "Student 27",
-    "Student 28",
-    "Student 29",
+  // create dummy student list with name
+  List<String> students = [
+    "John",
+    "Jane",
+    "Peter",
+    "Mary",
+    "Jack",
+    "Jill",
+    "Bob",
+    "Alice",
+    "Tom",
+    "Jerry",
+    "Peter",
+    "Mary",
+    "Jack",
+    "Jill",
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Detail'),
-      ),
+      appBar: AppBar(title: Text("Detail")),
       body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(12.0),
+        child: Container(
           child: Center(
-            child: Column(
-              children: [
-                Text(
-                  "Your total exchange is: $total kip",
-                  style: TextStyle(fontSize: 18),
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      total = rate * amount;
-                    });
-                  },
-                  child: Text("Caculate"),
-                ),
-                ListView.builder(
-                    shrinkWrap: true,
-                    itemCount: students.length,
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text(students[index]),
-                      );
-                    })
-              ],
-            ),
-          ),
+              child: Column(
+            children: [
+              Text("total money is $total kip"),
+              ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    total = rate * amount;
+                  });
+                },
+                child: Text("Calculate"),
+              ),
+              const SizedBox(height: 32),
+              ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: students.length,
+                  itemBuilder: (context, inx) {
+                    return ListTile(
+                      title: Text(students[inx]),
+                    );
+                  })
+            ],
+          )),
         ),
       ),
     );
