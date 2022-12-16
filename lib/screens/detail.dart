@@ -50,15 +50,15 @@ class _DetailScreenState extends State<DetailScreen> {
             child: Column(
               children: [
                 Text(
-                  "Money exchange rate: $rate Kip",
+                  "ອັດຕາແລກປ່ຽນປັດຈຸບັນ: $rate Kip",
                   style: TextStyle(fontSize: 18),
                 ),
                 Text(
-                  "Total amount of your exchange: \$$amount",
+                  "ຈຳນວນເງິນທີ່ຈະແລກ: \$$amount",
                   style: TextStyle(fontSize: 18),
                 ),
                 Text(
-                  "Total amount you receive is: $total Kip",
+                  "ຈຳນວນເງິນທີ່ໄດ້ຮັບ: $total Kip",
                   style: TextStyle(fontSize: 18),
                 ),
                 ElevatedButton(
@@ -68,6 +68,10 @@ class _DetailScreenState extends State<DetailScreen> {
                     });
                   },
                   child: Text("Caculate"),
+                ),
+                Image.asset(
+                  "assets/images/deluxe.jpeg",
+                  height: 180,
                 ),
                 ListView.builder(
                     itemCount: students.length,
