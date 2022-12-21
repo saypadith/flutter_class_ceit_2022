@@ -59,7 +59,7 @@ class _DetailScreenState extends State<DetailScreen> {
             child: Column(
               children: [
                 Text(
-                  "Your total exchange is: $total kip",
+                  "ຈຳນວນເງິນທີ່ເຮົາຈະແລກປ່ຽນ: $total ກີບ",
                   style: TextStyle(fontSize: 18),
                 ),
                 ElevatedButton(
@@ -70,15 +70,25 @@ class _DetailScreenState extends State<DetailScreen> {
                   },
                   child: Text("Caculate"),
                 ),
-                ListView.builder(
-                    shrinkWrap: true,
-                    itemCount: students.length,
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text(students[index]),
-                      );
-                    })
+
+                Image.asset(
+                  "assets/images/img1.jpg",
+                  height: 200,
+                ),
+                Image.asset(
+                  "assets/images/img2.jpg",
+                  height: 200,
+                ),
+
+                // ListView.builder(
+                //     shrinkWrap: true,
+                //     itemCount: students.length,
+                //     itemBuilder: (context, index) {
+                //       return Padding(
+                //         padding: const EdgeInsets.all(8.0),
+                //         child: Text(students[index]),
+                //       );
+                //     })
               ],
             ),
           ),
