@@ -39,7 +39,10 @@ class _DetailScreenState extends State<DetailScreen> {
           child: Center(
               child: Column(
             children: [
-              Text("total money is $total kip"),
+              Text(
+                "ຈຳນວນເງິນທີ່ແລກປ່ຽນ: $total ກີບ",
+                style: TextStyle(fontSize: 24),
+              ),
               ElevatedButton(
                 onPressed: () {
                   setState(() {
@@ -49,14 +52,20 @@ class _DetailScreenState extends State<DetailScreen> {
                 child: Text("Calculate"),
               ),
               const SizedBox(height: 32),
-              ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: students.length,
-                  itemBuilder: (context, inx) {
-                    return ListTile(
-                      title: Text(students[inx]),
-                    );
-                  })
+
+              Image.asset(
+                "assets/images/img1.jpg",
+                height: 200,
+              ),
+
+              // ListView.builder(
+              //     shrinkWrap: true,
+              //     itemCount: students.length,
+              //     itemBuilder: (context, inx) {
+              //       return ListTile(
+              //         title: Text(students[inx]),
+              //       );
+              //     })
             ],
           )),
         ),
