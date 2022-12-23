@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
 class DetailScreen extends StatefulWidget {
-  DetailScreen({super.key});
-
   @override
   State<DetailScreen> createState() => _DetailScreenState();
 }
@@ -11,6 +9,7 @@ class _DetailScreenState extends State<DetailScreen> {
   int rate = 17500;
   int amount = 150;
   int total = 0;
+
   // create a list of students
   List students = [
     "John",
