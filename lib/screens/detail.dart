@@ -57,28 +57,29 @@ class _DetailScreenState extends State<DetailScreen> {
           padding: const EdgeInsets.all(12.0),
           child: Center(
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  "ຈຳນວນເງິນທີ່ເຮົາຈະແລກປ່ຽນ: $total ກີບ",
-                  style: TextStyle(fontSize: 18),
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      total = rate * amount;
-                    });
-                  },
-                  child: Text("Caculate"),
-                ),
+                // Text(
+                //   "ຈຳນວນເງິນທີ່ເຮົາຈະແລກປ່ຽນ: $total ກີບ",
+                //   style: TextStyle(fontSize: 18),
+                // ),
+                // ElevatedButton(
+                //   onPressed: () {
+                //     setState(() {
+                //       total = rate * amount;
+                //     });
+                //   },
+                //   child: Text("Caculate"),
+                // ),
 
-                Image.asset(
-                  "assets/images/img1.jpg",
-                  height: 200,
-                ),
-                Image.asset(
-                  "assets/images/img2.jpg",
-                  height: 200,
-                ),
+                // Image.asset(
+                //   "assets/images/img1.jpg",
+                //   height: 200,
+                // ),
+                // Image.asset(
+                //   "assets/images/img2.jpg",
+                //   height: 200,
+                // ),
 
                 // ListView.builder(
                 //     shrinkWrap: true,
@@ -89,6 +90,106 @@ class _DetailScreenState extends State<DetailScreen> {
                 //         child: Text(students[index]),
                 //       );
                 //     })
+                // load image from lorem image
+
+                Image.network(
+                  'https://picsum.photos/seed/picsum/200/300',
+                  width: double.infinity,
+                  height: 200,
+                  fit: BoxFit.cover,
+                ),
+                SizedBox(height: 30),
+                Text(
+                  "Our Students",
+                  style: TextStyle(fontSize: 24),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: const [
+                        CircleAvatar(
+                          radius: 50.0,
+                          backgroundImage:
+                              NetworkImage('https://i.pravatar.cc/300'),
+                          backgroundColor: Colors.transparent,
+                        ),
+                        Text("Jackson"),
+                      ],
+                    ),
+                    Column(
+                      children: const [
+                        CircleAvatar(
+                          radius: 50.0,
+                          backgroundImage:
+                              NetworkImage('https://i.pravatar.cc/400'),
+                          backgroundColor: Colors.transparent,
+                        ),
+                        Text("Smith"),
+                      ],
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: const [
+                        CircleAvatar(
+                          radius: 50.0,
+                          backgroundImage:
+                              NetworkImage('https://i.pravatar.cc/500'),
+                          backgroundColor: Colors.transparent,
+                        ),
+                        Text("John"),
+                      ],
+                    )
+                  ],
+                ),
+                SizedBox(height: 14),
+                Text(
+                  "Hospitals",
+                  style: TextStyle(fontSize: 24),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: const [
+                        CircleAvatar(
+                          radius: 50.0,
+                          backgroundImage:
+                              NetworkImage('https://i.pravatar.cc/700'),
+                          backgroundColor: Colors.transparent,
+                        ),
+                        Text("Jackson"),
+                      ],
+                    ),
+                    Column(
+                      children: const [
+                        CircleAvatar(
+                          radius: 50.0,
+                          backgroundImage:
+                              NetworkImage('https://i.pravatar.cc/100'),
+                          backgroundColor: Colors.transparent,
+                        ),
+                        Text("Smith"),
+                      ],
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: const [
+                        CircleAvatar(
+                          radius: 50.0,
+                          backgroundImage:
+                              NetworkImage('https://i.pravatar.cc/200'),
+                          backgroundColor: Colors.transparent,
+                        ),
+                        Text("John"),
+                      ],
+                    )
+                  ],
+                ),
               ],
             ),
           ),
