@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class DetailScreen extends StatefulWidget {
   DetailScreen({super.key});
@@ -11,6 +12,7 @@ class _DetailScreenState extends State<DetailScreen> {
   int rate = 17500;
   int amount = 500;
   int total = 0;
+  String? gender;
 
   // create dummy student list with name
   List<String> students = [
@@ -29,6 +31,26 @@ class _DetailScreenState extends State<DetailScreen> {
     "Jack",
     "Jill",
   ];
+
+  getGender() async {
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+    if (preferences.getString("gender") != null) {
+      setState(() {
+        gender = preferences.getString("gender");
+      });
+    }
+  }
+
+  setGender(String gen) async {
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+    preferences.setString("gender", gen);
+  }
+
+  @override
+  void initState() {
+    getGender();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -85,6 +107,43 @@ class _DetailScreenState extends State<DetailScreen> {
                 ),
               ),
               SizedBox(height: 32),
+              Column(
+                children: [
+                  RadioListTile(
+                    title: Text("Male"),
+                    value: "male",
+                    groupValue: gender,
+                    onChanged: (value) {
+                      setState(() {
+                        gender = value.toString();
+                        setGender(gender!);
+                      });
+                    },
+                  ),
+                  RadioListTile(
+                    title: Text("Female"),
+                    value: "female",
+                    groupValue: gender,
+                    onChanged: (value) {
+                      setState(() {
+                        gender = value.toString();
+                        setGender(gender!);
+                      });
+                    },
+                  ),
+                  RadioListTile(
+                    title: Text("Other"),
+                    value: "other",
+                    groupValue: gender,
+                    onChanged: (value) {
+                      setState(() {
+                        gender = value.toString();
+                        setGender(gender!);
+                      });
+                    },
+                  )
+                ],
+              ),
               Text("Popular Courses",
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
               SizedBox(height: 12),
