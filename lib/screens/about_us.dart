@@ -8,6 +8,7 @@ class AboutUsScreen extends StatefulWidget {
 }
 
 class _AboutUsScreenState extends State<AboutUsScreen> {
+  // ເພີ່ມອີກໂຕແປນຶ່ງ
   String name = "**********";
   @override
   Widget build(BuildContext context) {
