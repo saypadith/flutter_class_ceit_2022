@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class AboutUsScreen extends StatefulWidget {
   const AboutUsScreen({super.key});
@@ -8,6 +9,29 @@ class AboutUsScreen extends StatefulWidget {
 }
 
 class _AboutUsScreenState extends State<AboutUsScreen> {
+  bool isSwitched = false;
+
+  getSwitched() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    if (prefs.getBool("switched") != null) {
+      setState(() {
+        isSwitched = prefs.getBool("switched")!;
+      });
+    }
+  }
+
+  setSwitched(bool switched) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setBool("switched", switched);
+  }
+
+  @override
+  void initState() {
+    getSwitched();
+    // TODO: implement initState
+    super.initState();
+  }
+
   // ເພີ່ມອີກໂຕແປນຶ່ງ
   String name = "**********";
   @override
@@ -16,7 +40,7 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
       appBar: AppBar(
         title: Text("About us"),
       ),
-      body: Container(
+      body: SingleChildScrollView(
           child: Center(
         child: Column(
           children: [
@@ -49,14 +73,22 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
                       Text("Kuangsi Waterfall"),
                     ],
                   ),
-                  Row(
-                    children: const [
-                      Icon(
-                        Icons.star,
-                        color: Colors.red,
-                      ),
-                      Text("40")
-                    ],
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        isSwitched = !isSwitched;
+                        setSwitched(isSwitched);
+                      });
+                    },
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.star,
+                          color: isSwitched ? Colors.red : Colors.grey,
+                        ),
+                        Text("40")
+                      ],
+                    ),
                   )
                 ],
               ),
