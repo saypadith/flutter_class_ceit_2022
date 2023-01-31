@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_starter/screens/submit_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AboutUsScreen extends StatefulWidget {
@@ -28,7 +29,6 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
   @override
   void initState() {
     getSwitched();
-    // TODO: implement initState
     super.initState();
   }
 
@@ -38,7 +38,7 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("About us"),
+        title: const Text("About us"),
       ),
       body: SingleChildScrollView(
           child: Center(
@@ -86,7 +86,7 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
                           Icons.star,
                           color: isSwitched ? Colors.red : Colors.grey,
                         ),
-                        Text("40")
+                        const Text("40")
                       ],
                     ),
                   )
@@ -161,20 +161,29 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
                                 TextStyle(fontSize: 20, color: Colors.white)),
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 12,
                     ),
-                    Text(
+                    const Text(
                         "lorem ipsum dolor sit amet consectetur adipiscing elit donec auctor nisl eget ultricies tincidunt nunc nisl aliquam nisl eget aliquam nunc nisl eget nunc",
                         style: TextStyle(color: Colors.white)),
-                    SizedBox(
+                    const SizedBox(
                       height: 12,
                     ),
                     Row(
                       children: [
-                        Text("EXPLORE BEAMS",
+                        const Text("EXPLORE BEAMS",
                             style: TextStyle(color: Colors.green)),
-                        Icon(Icons.arrow_forward, color: Colors.green)
+                        IconButton(
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const SubmitScreen()));
+                            },
+                            icon: const Icon(Icons.arrow_forward,
+                                color: Colors.green))
                       ],
                     )
                   ],
