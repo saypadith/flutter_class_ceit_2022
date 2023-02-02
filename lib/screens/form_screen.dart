@@ -20,6 +20,7 @@ class _FormScreenState extends State<FormScreen> {
   @override
   void initState() {
     _passwordVisible = false;
+    super.initState();
   }
 
   @override
