@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_starter/screens/detail.dart';
+import 'package:flutter_starter/screens/form_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -65,6 +66,13 @@ class HomeScreen extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => DetailScreen()));
             },
             child: const Text("Click me"),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => FormScreen()));
+            },
+            child: const Text("Go to Form"),
           )
         ],
       )),
